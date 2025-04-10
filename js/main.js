@@ -98,6 +98,43 @@
                     }
                 })
             }
+        /*===== Contact Form =====*/
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitBtn = contactForm.querySelector('.submit-btn button');
+                const originalBtnText = submitBtn.innerHTML;
+                submitBtn.innerHTML = 'Sending...';
+                submitBtn.disabled = true;
+
+                fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Message sent successfully!');
+                        contactForm.reset();
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    alert('There was a problem sending your message. Please try again later.');
+                    console.error('Error:', error);
+                })
+                .finally(() => {
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+            });
+        }
+
         /*===== Lightbox =====*/
         const lightbox = document.querySelector(".lightbox"),
                   lightboxImg = lightbox.querySelector(".lightbox-img"),
