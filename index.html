@@ -2,420 +2,362 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maanda Adivhaho</title>
-    <!--===== Font Awesome =====-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!--===== Main CSS =====-->
+    <title>Maanda Adivhaho - Software Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "vda-kApeWyahh2FZG",
+      });
+   })();
+</script>
 </head>
 <body>
-      <!--===== Navbar Start =====-->
-      <nav class="navbar">
-          <div class="container">
-              <div class="row justify-content-between">
-                
-                  <div class="links">
-                  <ul class="menu">
-                      <li class="nav-item"><a href="#home" class="nav-link active">Home <span></span></a></li>
-                      <li class="nav-item"><a href="#about" class="nav-link">About <span></span></a></li>
-                      <li class="nav-item"><a href="#services" class="nav-link">Services <span></span></a></li>
-                      <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio <span></span></a></li>
-                      <li class="nav-item"><a href="#contact" class="nav-link">Contact <span></span></a></li>
-                  </ul>
-                  </div>
-                  <div class="menu-btn">
-                      <i class="fas fa-bars"></i>
-                  </div>
-              </div>
-          </div>
-      </nav>
-      <!--===== Navbar End =====-->
-      <!--===== Home Section Start =====-->
-      <section class="home-section" id="home">
-          <ul class="header-social"> <!--===== Header Social =====-->
-              <li><a href="https://www.facebook.com/profile.php?id=100073954878385"><i class="fab fa-facebook-f"></i></a></li>
-              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-              <li><a href="https://www.linkedin.com/in/maanda-adivhaho-446195319"><i class="fab fa-linkedin"></i></a></li>
-          </ul>
-          <div class="container">
-              <div class="row align-items-center">
-                  <div class="home-text">
-                      
-                      <h1>Maanda Adivhaho</h1>
-                      <span>Full Stack Developer</span>
-                      <p style="color: black;">
-                        Computer Science graduate with 2 years of experience in React development, Node.js, and 1 year of experience with Kotlin, Jetpack Compose. Gained hands-on experience through Work Integrated Learning (WIL), demonstrating strong problem-solving skills, software development expertise, and the ability to work effectively in a team. Seeking an entry-level position to contribute to innovative projects and further enhance technical skills.
-                      </p>
-                      <a href="#contact" class="btn btn-1">Hire Me</a>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+    </div>
 
-                  </div>
-                  <div class="home-image">
-                      <div class="img-box">
-                         
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="header-hero-shape"></div> <!--===== Hero Shape =====-->
-      </section>
-      <!--===== Home Section End =====-->
-      <!--===== About Section Start =====-->
-      <section class="about-section section-padding" id="about">
-          <div class="container">
-              <div class="row align-items-center justify-content-center">
-                  <div class="about-image">
-                      <div class="img-box">
-                          <img src="images/adivhaho.jpg" alt="">
-                          <div class="about-shape"></div>
-                      </div>
-                  </div>
-                  <div class="about-content">
-                      <div class="section-title">
-                          <h5 class="sub-title">About</h5>
-                          <h3 class="main-title">Why You Hire Me?</h3>
-                          <ul class="line">
-                              <li></li>
-                              <li></li>
-                              <li></li>
-                          </ul>
-                      </div> <!--===== Section Title =====-->
-                      <p>Why hire me? As a passionate full-stack developer with expertise in React, Jetpack Compose, and Node.js,  
-                        I build scalable and user-friendly applications. With hands-on experience in software projects like  
-                        Extreme Service Delivery, I specialize in creating seamless user experiences and efficient backend systems.  
-                        My skills include:</p>
-                          <div class="about-skills">
-                              <div class="skill-item">
-                                  <div class="skill-header">
-                                      <h6 class="skill-title">Frontend: React, Jetpack Compose, HTML, CSS, JavaScript,Java EE </h6>
-                                      <div class="skill-percentage">
-                                          <p><span class="counter">90</span>%</p>
-                                      </div>
-                                  </div>
-                                  <div class="skill-bar">
-                                      <div class="bar-inner">
-                                          <div class="bar progress-line" data-progress="90%"></div>
-                                      </div>
-                                  </div>
-                              </div> <!--===== Skill Item =====-->
-                              <div class="skill-item">
-                                <div class="skill-header">
-                                    <h6 class="skill-title">Backend: Node.js, Express, MySQL</h6>
-                                    <div class="skill-percentage">
-                                        <p><span class="counter">95</span>%</p>
-                                    </div>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="bar-inner">
-                                        <div class="bar progress-line" data-progress="95%"></div>
-                                    </div>
-                                </div>
-                            </div> <!--===== Skill Item =====-->
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="menu-btn" id="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Maanda Adivhaho</h1>
+                    <div class="typing-text" id="typing-text">
+                        <span></span>
+                    </div>
+                    <p>Computer  Science graduate with 3 years of academic exposure to Java, gaining solid hands-on experience in
+ object-oriented programming and software development principles. Also experienced in full-stack development
+ with 2 years of React and Node.js, and 1 year of Kotlin and Jetpack Compose</p><div class="hero-buttons">
+                        <a href="#portfolio" class="btn-neon">View My Work</a>
+                        <a href="#contact" class="btn-neon btn-outline">Hire Me</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100073954878385" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/in/maanda-adivhaho-446195319" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/maandaadivhaho10" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/adivhaho.jpg" alt="Maanda Adivhaho">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about scroll-reveal" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Why You Should Hire Me?</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Software Developer & Problem Solver</h3>
+                    <p>As a passionate Software developer with expertise in React, Jetpack Compose, and Node.js, I build scalable and user-friendly applications. With hands-on experience in software projects like Extreme Service Delivery, I specialize in creating seamless user experiences and efficient backend systems.</p>
+                    <p>I'm passionate about staying current with the latest technologies and best practices, ensuring that every project I work on is built with scalability, performance, and user experience in mind.</p>
+                    
+                    <div class="skills-container">
+                        <div class="skill-category">
+                            <h4><i class="fas fa-laptop-code"></i> Frontend Development</h4>
                             <div class="skill-item">
-                                <div class="skill-header">
-                                    <h6 class="skill-title"> API Integration: RESTful APIs, Retrofit</h6>
-                                    <div class="skill-percentage">
-                                        <p><span class="counter">70</span>%</p>
-                                    </div>
+                                <div class="skill-info">
+                                    <span>React, Jetpack Compose, HTML, CSS, JavaScript, Java EE</span>
+                                    <span>90%</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="bar-inner">
-                                        <div class="bar progress-line" data-progress="80%"></div>
-                                    </div>
+                                    <div class="skill-progress" data-width="90%"></div>
                                 </div>
-                            </div> <!--===== Skill Item =====-->
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h4><i class="fas fa-server"></i> Backend Development</h4>
                             <div class="skill-item">
-                                <div class="skill-header">
-                                    <h6 class="skill-title">Security & Authentication: Token-based Authentication</h6>
-                                    <div class="skill-percentage">
-                                        <p><span class="counter">70</span>%</p>
-                                    </div>
+                                <div class="skill-info">
+                                    <span>Node.js, Express, MySQL</span>
+                                    <span>95%</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="bar-inner">
-                                        <div class="bar progress-line" data-progress="70%"></div>
-                                    </div>
-                                </div>
-                            </div> <!--===== Skill Item =====-->
-                        </div> <!--===== Skill Item =====-->
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <h6 class="skill-title"><strong>Tools & Platforms:</strong> Git, GitHub, Docker,NetBeans,vs Code</h6>
-                                <div class="skill-percentage">
-                                    <p><span class="counter">70</span>%</p>
+                                    <div class="skill-progress" data-width="95%"></div>
                                 </div>
                             </div>
-                            <div class="skill-bar">
-                                <div class="bar-inner">
-                                    <div class="bar progress-line" data-progress="70%"></div>
-                                </div>
-                            </div>
-                        </div> <!--===== Skill Item =====-->
-                          </div>
-                  </div>
-              </div>
-          </div>
-      </section>
-      <!--===== About Section End =====-->
-      <!--===== Services Section Start =====-->
-      <section class="service-section section-padding" id="services">
-          <div class="container">
-              <div class="row">
-                <div class="section-title text-align">
-                    <h5 class="sub-title">services</h5>
-                    <h3 class="main-title">Services I Provide</h3>
-                    <ul class="line">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div> <!--===== Section Title =====-->
-              </div>
-              <div class="row">
-                   <!--===== Service Item Start =====-->
-                  <div class="service-item">
-                      <div class="service-item-inner">
-                          <div class="icon">
-                              <i class="fas fa-mobile-alt"></i>
-                          </div>
-                          <h3>Responsive Design</h3>
-<p>Creating seamless user experiences across all devices is essential. I specialize in building fully responsive  
-   web applications using modern technologies like CSS Flexbox, Grid, and media queries.  
-   Whether it's mobile, tablet, or desktop, my designs adapt flawlessly for an optimal user experience.</p>
+                        </div>
 
-                      </div>
-                  </div>
-                  <!--===== Service Item End =====-->
-                  <!--===== Service Item Start =====-->
-                   <div class="service-item">
-                    <div class="service-item-inner">
-                        <div class="icon">
-                            <i class="fas fa-laptop-code"></i>
+                        <div class="skill-category">
+                            <h4><i class="fas fa-plug"></i> API Integration</h4>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>RESTful APIs, Retrofit</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80%"></div>
+                                </div>
+                            </div>
                         </div>
-                        <h3>Android Applications</h3>
-<p>I develop modern and user-friendly Android applications using Jetpack Compose and Kotlin.  
-   My focus is on creating high-performance, scalable, and visually appealing mobile apps  
-   with seamless user experiences.</p>
-                    </div>
-                </div>
-                <!--===== Service Item End =====-->
-                <!--===== Service Item Start =====-->
-                 <div class="service-item">
-                    <div class="service-item-inner">
-                        <div class="icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <h3>Web Development</h3>
-<p>I build dynamic and responsive web applications using modern technologies like React, JavaScript,  
-   HTML, CSS, Java Enteprise Edition and Tailwind CSS. My expertise includes front-end and back-end development, ensuring  
-   seamless user experiences and high-performance web solutions.</p>
 
-                    </div>
-                </div>
-                <!--===== Service Item End =====-->
-                <!--===== Service Item Start =====-->
-                 
-                <!--===== Service Item End =====-->
-                <!--===== Service Item Start =====-->
-                
-                <!--===== Service Item End =====-->
-                <!--===== Service Item Start =====-->
-               
-              </div>
-          </div>
-      </section>
-      <!--===== Services Section End =====-->
-      <!--===== Portfolio Section Start =====-->
-      <section class="portfolio section-padding" id="portfolio">
-          <div class="container">
-            <div class="row">
-                <div class="section-title text-align">
-                    <h5 class="sub-title">portfolio</h5>
-                    <h3 class="main-title">My latest work <a href="https://github.com/maandaadivhaho10" target="_blank">GitHub</a></h3>
-                    <ul class="line">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div> <!--===== Section Title =====-->
-              </div>
-              <div class="row">
-                  <div class="portfolio-filter">
-                      <button type="button" class="active" data-filter="all">All</button>
-                      <button type="button" data-filter="Andriod Application">Andriod Application</button>
-                      <button type="button" data-filter="Web Application">Web Application</button>
-                      <button type="button" data-filter="wordpress">wordpress</button>
-                  </div>
-              </div>
-              <div class="row">
-                  <!--===== portfolio-item start =====-->
-                  <div class="portfolio-item" data-category="Web Application">
-                      <div class="portfolio-item-inner">
-                          <div class="app-preview">
-                              <img src="images/portfolio/portfolio-1.jpg" alt="App Screenshot" class="app-screenshot">
-                              <div class="tech-stack">
-                                  <span class="tech-badge react">React</span>
-                                  <span class="tech-badge node">Node.js</span>
-                              </div>
-                          </div>
-                          <div class="app-details">
-                              <h3>StellarStock</h3>
-                              <p>E-commerce web Application that allow users to buy products and sell online</p>
-                              <div class="app-links">
-                                  <a href="https://github.com/maandaadivhaho10/StellarStock2" target="_blank" class="code-link">
-                                      <i class="fab fa-github"></i> Code
-                                  </a>
-                                  <a href="https://maandaadivhaho10.github.io/StellarStock2/" class="demo-link">
-                                      <i class="fas fa-external-link-alt"></i> Demo
-                                  </a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                   <!--===== portfolio-item end =====-->
-                   <!--===== portfolio-item start =====-->
-                  <div class="portfolio-item" data-category="Andriod Application">
-                    <div class="portfolio-item-inner">
-                        <div class="app-preview">
-                            <img src="images/portfolio/portfolio-2.jpg" alt="Android App" class="app-screenshot">
-                            <div class="tech-stack">
-                                <span class="tech-badge kotlin">Kotlin</span>
-                                <span class="tech-badge android">Android</span>
+                        <div class="skill-category">
+                            <h4><i class="fas fa-shield-alt"></i> Security & Authentication</h4>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Token-based Authentication</span>
+                                    <span>70%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="70%"></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="app-details">
-                            <h3>Extreme Service Delivery</h3>
-                            <p>Android productivity app built with Jetpack Compose and Node js</p>
-                            <div class="app-links">
-                                <a href="https://github.com/maandaadivhaho10/AndriodExD" target="_blank" class="code-link">
-                                    <i class="fab fa-github"></i> Code
-                                </a>
-                                <a href="#" class="demo-link">
-                                    <i class="fas fa-external-link-alt"></i> Demo
-                                </a>
+
+                        <div class="skill-category">
+                            <h4><i class="fas fa-tools"></i> Tools & Platforms</h4>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Git, GitHub, Docker, NetBeans, VS Code</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="75%"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                 <!--===== portfolio-item end =====-->
-                 <!--===== portfolio-item start =====-->
-                   <div class="portfolio-item" data-category="Web Application">
-                    <div class="portfolio-item-inner">
-                        <div class="app-preview">
-                            <img src="images/portfolio/portfolio-3.jpg" alt="Web App" class="app-screenshot">
-                            <div class="tech-stack">
-                                <span class="tech-badge react">React</span>
-                                <span class="tech-badge node">Node.js</span>
-                            </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&h=600&fit=crop" alt="Coding workspace">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services scroll-reveal" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Services</h2>
+                <p>Services I Provide</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Design</h3>
+                    <p>Creating seamless user experiences across all devices is essential. I specialize in building fully responsive web applications using modern technologies like CSS Flexbox, Grid, and media queries. Whether it's mobile, tablet, or desktop, my designs adapt flawlessly for an optimal user experience.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">
+                        <i class="fab fa-android"></i>
+                    </div>
+                    <h3>Android Applications</h3>
+                    <p>I develop modern and user-friendly Android applications using Jetpack Compose and Kotlin. My focus is on creating high-performance, scalable, and visually appealing mobile apps with seamless user experiences.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>I build dynamic and responsive web applications using modern technologies like React, JavaScript, HTML, CSS, Java Enterprise Edition and Tailwind CSS. My expertise includes front-end and back-end development, ensuring seamless user experiences and high-performance web solutions.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Database Management</h3>
+                    <p>Expert in designing and managing databases using MySQL and other modern database technologies. I ensure data integrity, optimal performance, and secure data handling for all applications.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Solutions</h3>
+                    <p>Implementing scalable cloud infrastructure and deployment strategies using Docker,github pages, vercel other modern tools to ensure your applications perform at their best.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Performance Optimization</h3>
+                    <p>Speed and performance optimization to ensure your applications load fast and run smoothly across all platforms and devices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section portfolio scroll-reveal" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Portfolio</h2>
+                <p>My Latest Work - <a href="https://github.com/maandaadivhaho10" target="_blank" class="github-link">View on GitHub</a></p>
+            </div>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Applications</button>
+                <button class="filter-btn" data-filter="android">Android Apps</button>
+                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="web ecommerce">
+                    <img src="images/portfolio/portfolio-1.jpg" alt="StellarStock E-commerce Platform">
+                    <div class="portfolio-info">
+                        <h3>StellarStock</h3>
+                        <p>E-commerce web application that allows users to buy and sell products online. Built with React and Node.js for optimal performance.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge react">React</span>
+                            <span class="tech-badge node">Node.js</span>
                         </div>
-                        <div class="app-details">
-                            <h3>EduMaster</h3>
-                            <p>Learning Managment System with third-Part library such as Chatboard</p>
-                            <div class="app-links">
-                                <a href="https://github.com/maandaadivhaho10/Learning-Managment-system" target="_blank" class="code-link">
-                                    <i class="fab fa-github"></i> Code
-                                </a>
-                                <a href="https://maandaadivhaho10.github.io/Learning-Managment-system/" class="demo-link">
-                                    <i class="fas fa-external-link-alt"></i> Demo
-                                </a>
-                            </div>
+                        <div class="portfolio-links">
+                            <a href="https://github.com/maandaadivhaho10/StellarStock2" target="_blank">GitHub</a>
+                            <a href="https://maandaadivhaho10.github.io/StellarStock2/" target="_blank">Live Demo</a>
                         </div>
                     </div>
                 </div>
-                 <!--===== portfolio-item end =====-->
-                 <!--===== portfolio-item start =====-->
-                 
-                 <!--===== portfolio-item end =====-->
-                
-                 <!--===== portfolio-item end =====-->
-                 <!--===== portfolio-item start =====-->
-                   <div class="portfolio-item" data-category="Web Application">
-                 <!--===== portfolio-item end =====-->
-              </div>
-          </div>
-      </section>
-      <!--===== Portfolio Section End =====-->
-      <!--===== Pricing Section Start =====-->
-      
-             
-      <!--===== Pricing Section End =====-->
-      <!--===== Contact Section Start =====-->
-       <section class="contact-section section-padding" id="contact">
-           <div class="container">
-            <div class="row">
-                <div class="section-title text-align">
-                    <h5 class="sub-title">contact</h5>
-                    <h3 class="main-title">get in touch</h3>
-                    <ul class="line">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div> <!--===== Section Title =====-->
-              </div>
-              <div class="row">
-                  <!--===== contact item start =====-->
-                  <div class="contact-item">
-                      <div class="contact-item-inner">
-                          <i class="fas fa-phone"></i>
-                          <span>Phone</span>
-                          <p>0761411712</p>
-                      </div>
-                  </div>
-                  <!--===== contact item end =====-->
-                  <!--===== contact item start =====-->
-                   <div class="contact-item">
-                    <div class="contact-item-inner">
+
+                <div class="portfolio-item" data-category="android">
+                    <img src="images/portfolio/portfolio-2.jpg" alt="Extreme Service Delivery Android App">
+                    <div class="portfolio-info">
+                        <h3>Extreme Service Delivery</h3>
+                        <p>Developed and deployed a highly scalable full stack system for an municipality platform, addressing challenges
+ of communication between resident and municipalities</p><div class="tech-stack">
+                            <span class="tech-badge kotlin">Kotlin</span>
+                            <span class="tech-badge android">Android</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://github.com/maandaadivhaho10/AndriodExD" target="_blank">GitHub</a>
+                            <a href="#" target="_blank">Demo</a>
+                        </div>
+                    </div>
+                </div>
+<div class="portfolio-item" data-category="android">
+                    <img src="images/s3.jpg" alt="Extreme Service Delivery Android App">
+                    <div class="portfolio-info">
+                        <h3>Melula page Recreation</h3>
+                        <p>I successfully recreated the Melula using react css. 
+This project demonstrates my ability to make a website responsive</p><div class="tech-stack">
+                            <span class="tech-badge kotlin">React</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://github.com/maandaadivhaho10/Asssessment1" target="_blank">GitHub</a>
+                            <a href="https://assessment11.vercel.app/" target="_blank">Demo</a>
+                        </div>
+                    </div>
+                </div> 
+
+
+                <div class="portfolio-item" data-category="web">
+                    <img src="images/portfolio/portfolio-3.jpg" alt="EduMaster Learning Management System">
+                    <div class="portfolio-info">
+                        <h3>EduMaster</h3>
+                        <p>Learning Management System with third-party library integration such as Chatboard for enhanced user interaction.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge react">React</span>
+                            <span class="tech-badge node">Node.js</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://github.com/maandaadivhaho10/Learning-Managment-system" target="_blank">GitHub</a>
+                            <a href="https://maandaadivhaho10.github.io/Learning-Managment-system/" target="_blank">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact scroll-reveal" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Ready to start your next project? Let's create something amazing together</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>Email</span>
-                        <p>maandaadivhaho74@gmail.com</p>
+                        <div>
+                            <h4>Email</h4>
+                            <p>maandaadivhaho74@gmail.com</p>
+                        </div>
                     </div>
-                </div>
-                 <!--===== contact item end =====-->
-                 <!--===== contact item start =====-->
-                 <div class="contact-item">
-                    <div class="contact-item-inner">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>0761411712</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Address</span>
-                        <p>pretoria,Central
-                            <br>
-                            Willing to relocate
-                        </p>
+                        <div>
+                            <h4>Location</h4>
+                            <p>
+                             johannesburg, Braamfontein<br>Willing to relocate</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h4>GitHub</h4>
+                            <p>github.com/maandaadivhaho10</p>
+                        </div>
                     </div>
                 </div>
-                 <!--===== contact item end =====-->
-              </div>
-           </div>
-       </section>
-       <!--===== Contact Section End =====-->
-       <!--===== Footer Section Start =====-->
-       <footer class="footer">
-           <div class="container">
-               <div class="row justify-content-center">
-                   <p class="copyright-text">&copy;<a href="https://github.com/maandaadivhaho10" target="_blank">GitHub</a></p>
-               </div>
-           </div>
-       </footer>
-       <!--===== Footer Section End =====-->
-       <!--===== Lightbox Start =====-->
-      <div class="lightbox">
-          <div class="lightbox-content">
-              <div class="lightbox-close">&times;</div>
-              <img src="images/portfolio/portfolio-2.jpg" onclick="nextItem()" class="lightbox-img" alt="">
-              <div class="lightbox-caption">
-                  <div class="caption-text"></div>
-                  <div class="caption-counter"></div>
-              </div>
-          </div>
-          <div class="lightbox-controls">
-              <div class="prev-item" onclick="prevItem()"><i class="fa fa-angle-left"></i></div>
-              <div class="next-item" onclick="nextItem()"><i class="fa fa-angle-right"></i></div>
-          </div>
-      </div>
-      <!--===== Lightbox End =====-->
-      <!--===== Main JS =====-->
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-neon">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Maanda Adivhaho. All rights reserved. Built with passion and cutting-edge technology.</p>
+        </div>
+    </footer>
+
     <script src="js/main.js"></script>
 </body>
 </html>
