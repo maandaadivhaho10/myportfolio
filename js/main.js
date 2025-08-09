@@ -49,11 +49,10 @@ navLinks.forEach(link => {
 // ===== Typing Animation =====
 const typingElement = document.querySelector('#typing-text span');
 const texts = [
-    'Full Stack Developer',
-    'React Specialist', 
-    'Android Developer',
-    'Node.js Expert',
-    'Problem Solver'
+    'Software Programming',
+    'System Analysis', 
+    'Mobile Device Programming',
+    'Database Design'
 ];
 
 let textIndex = 0;
