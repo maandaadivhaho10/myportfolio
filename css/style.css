@@ -416,12 +416,11 @@ body::before {
 }
 
 .hero-image img {
+    height: 650px;
     width: 100%;
-    max-width: 400px;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: var(--shadow-deep);
+    object-fit: cover; /* avoids distortion, crops instead */
 }
+
 
 /*===== Section Styles =====*/
 .section {
