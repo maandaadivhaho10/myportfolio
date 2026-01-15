@@ -87,67 +87,107 @@ function typeWriter() {
 // Start typing animation when page loads
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(typeWriter, 1000);
+    renderProjects();
 });
 
 // ===== Smooth Scrolling for Navigation Links =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
         
-        if (target) {
-            const navbarHeight = document.getElementById('navbar').offsetHeight;
-            const targetPosition = target.offsetTop - navbarHeight;
+        // Only handle internal links that aren't just "#"
+        if (href !== '#' && href.startsWith('#')) {
+            const target = document.querySelector(href);
             
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
+            if (target) {
+                e.preventDefault();
+                const navbarHeight = document.getElementById('navbar').offsetHeight;
+                const targetPosition = target.offsetTop - navbarHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu if open
+                navMenu.classList.remove('active');
+                const icon = menuBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
         }
-        
-        // Close mobile menu if open
-        navMenu.classList.remove('active');
-        const icon = menuBtn.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
     });
 });
 
-// ===== Portfolio Filter Functionality =====
-const filterBtns = document.querySelectorAll('.filter-btn');
-const portfolioItems = document.querySelectorAll('.portfolio-item');
+// ===== Portfolio Rendering & Filtering =====
+function renderProjects() {
+    const portfolioGrid = document.getElementById('portfolio-grid');
+    if (!portfolioGrid || typeof projectsData === 'undefined') return;
 
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Remove active class from all buttons
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+    portfolioGrid.innerHTML = '';
 
-        const filterValue = btn.getAttribute('data-filter');
+    Object.keys(projectsData).forEach(id => {
+        const project = projectsData[id];
+        const projectItem = document.createElement('div');
+        projectItem.className = 'portfolio-item';
+        projectItem.setAttribute('data-category', project.category || 'all');
+        projectItem.onclick = () => window.location.href = `project.html?id=${id}`;
 
-        portfolioItems.forEach(item => {
-            const categories = item.getAttribute('data-category').split(' ');
-            
-            if (filterValue === 'all' || categories.includes(filterValue)) {
-                item.style.display = 'block';
-                item.style.opacity = '0';
-                item.style.transform = 'scale(0.8)';
+        projectItem.innerHTML = `
+            <img src="${project.heroImage}" alt="${project.title}">
+            <div class="portfolio-info">
+                <h3>${project.title}</h3>
+                <div class="portfolio-links">
+                    <a href="project.html?id=${id}" class="view-more-btn">View More</a>
+                </div>
+            </div>
+        `;
+        portfolioGrid.appendChild(projectItem);
+    });
+
+    setupPortfolioFilters();
+}
+
+function setupPortfolioFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    
+    if (filterBtns.length === 0) return;
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            portfolioItems.forEach(item => {
+                const categories = item.getAttribute('data-category').split(' ');
                 
-                setTimeout(() => {
-                    item.style.opacity = '1';
-                    item.style.transform = 'scale(1)';
-                }, 50);
-            } else {
-                item.style.opacity = '0';
-                item.style.transform = 'scale(0.8)';
-                
-                setTimeout(() => {
-                    item.style.display = 'none';
-                }, 300);
-            }
+                if (filterValue === 'all' || categories.includes(filterValue)) {
+                    item.style.display = 'block';
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
         });
     });
-});
+}
 
 // ===== Skills Progress Animation =====
 function animateSkills() {
@@ -198,93 +238,95 @@ document.querySelectorAll('.scroll-reveal').forEach(el => {
 // ===== Contact Form Handling with EmailJS =====
 const contactForm = document.getElementById('contact-form');
 
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    
-    // Show loading state
-    submitBtn.textContent = 'Sending...';
-    submitBtn.style.opacity = '0.7';
-    submitBtn.disabled = true;
-    
-    // Get form data
-    const formData = new FormData(this);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const subject = formData.get('subject');
-    const message = formData.get('message');
-    
-    // Validate form data
-    if (!name || !email || !message) {
-        showNotification('Please fill in all required fields.', 'error');
-        // Reset button
-        submitBtn.textContent = originalText;
-        submitBtn.style.opacity = '1';
-        submitBtn.disabled = false;
-        return;
-    }
-    
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        showNotification('Please enter a valid email address.', 'error');
-        // Reset button
-        submitBtn.textContent = originalText;
-        submitBtn.style.opacity = '1';
-        submitBtn.disabled = false;
-        return;
-    }
-    
-    // Prepare template parameters for EmailJS
-    const templateParams = {
-        from_name: name,
-        from_email: email,
-        subject: subject,
-        message: message,
-        to_name: "Maanda Adivhaho",
-        reply_to: email
-    };
-    
-    // Send email using EmailJS
-    emailjs.send(
-        'vda-kApeWyahh2FZG',    // Replace with your EmailJS service ID
-        'template_63yq6go',   // Replace with your EmailJS template ID
-        templateParams
-    )
-    .then(function(response) {
-        console.log('Email sent successfully:', response);
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        // Success handling - keep the original timing
-        setTimeout(() => {
-            // Success message
-            showNotification(`Thank you ${name}! Your message has been sent successfully. I'll get back to you soon.`, 'success');
-            
-            // Reset form
-            contactForm.reset();
-            
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        
+        // Show loading state
+        submitBtn.textContent = 'Sending...';
+        submitBtn.style.opacity = '0.7';
+        submitBtn.disabled = true;
+        
+        // Get form data
+        const formData = new FormData(this);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const subject = formData.get('subject');
+        const message = formData.get('message');
+        
+        // Validate form data
+        if (!name || !email || !message) {
+            showNotification('Please fill in all required fields.', 'error');
             // Reset button
             submitBtn.textContent = originalText;
             submitBtn.style.opacity = '1';
             submitBtn.disabled = false;
-        }, 1000);
+            return;
+        }
         
-    })
-    .catch(function(error) {
-        console.error('Email sending failed:', error);
-        
-        // Error handling
-        setTimeout(() => {
-            showNotification('Sorry, there was an error sending your message. Please try again or contact me directly.', 'error');
-            
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showNotification('Please enter a valid email address.', 'error');
             // Reset button
             submitBtn.textContent = originalText;
             submitBtn.style.opacity = '1';
             submitBtn.disabled = false;
-        }, 1000);
+            return;
+        }
+        
+        // Prepare template parameters for EmailJS
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            subject: subject,
+            message: message,
+            to_name: "Maanda Adivhaho",
+            reply_to: email
+        };
+        
+        // Send email using EmailJS
+        emailjs.send(
+            'vda-kApeWyahh2FZG',    // Replace with your EmailJS service ID
+            'template_63yq6go',   // Replace with your EmailJS template ID
+            templateParams
+        )
+        .then(function(response) {
+            console.log('Email sent successfully:', response);
+            
+            // Success handling - keep the original timing
+            setTimeout(() => {
+                // Success message
+                showNotification(`Thank you ${name}! Your message has been sent successfully. I'll get back to you soon.`, 'success');
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.style.opacity = '1';
+                submitBtn.disabled = false;
+            }, 1000);
+            
+        })
+        .catch(function(error) {
+            console.error('Email sending failed:', error);
+            
+            // Error handling
+            setTimeout(() => {
+                showNotification('Sorry, there was an error sending your message. Please try again or contact me directly.', 'error');
+                
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.style.opacity = '1';
+                submitBtn.disabled = false;
+            }, 1000);
+        });
     });
-});
+}
 
 // ===== Active Navigation Link Highlighting =====
 window.addEventListener('scroll', () => {

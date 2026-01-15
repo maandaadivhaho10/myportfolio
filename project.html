@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - Maanda Adivhaho</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init({
+            publicKey: "vda-kApeWyahh2FZG",
+          });
+       })();
+    </script>
+</head>
+<body class="project-page">
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#portfolio" class="nav-link">Projects</a></li>
+            </ul>
+            <button class="menu-btn" id="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-hero-content">
+                <div class="project-hero-text">
+                    <div class="project-category" id="project-category">Web Development</div>
+                    <h1 id="project-title">Loading Project...</h1>
+                    <p id="project-short-desc">Please wait while we fetch the project details.</p>
+                    
+                    <div class="project-snapshot glass">
+                        <div class="snapshot-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div class="snapshot-info">
+                                <span>Duration</span>
+                                <strong id="time-taken">-</strong>
+                            </div>
+                        </div>
+                        <div class="snapshot-item">
+                            <i class="fas fa-user-friends"></i>
+                            <div class="snapshot-info">
+                                <span>Team</span>
+                                <strong id="team-size">-</strong>
+                            </div>
+                        </div>
+                        <div class="snapshot-item">
+                            <i class="fas fa-layer-group"></i>
+                            <div class="snapshot-info">
+                                <span>Core Tech</span>
+                                <strong id="project-tech">-</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-actions">
+                        <a id="github-link" href="#" target="_blank" class="btn-neon">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                        <a id="live-link" href="#" target="_blank" class="btn-neon btn-outline">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Case Study Content -->
+    <section class="project-details">
+        <div class="container">
+            <div class="case-study-grid">
+                <!-- Left Column: Challenges & Solutions -->
+                <div class="case-study-main">
+                    <div class="detail-card glass">
+                        <h2><i class="fas fa-search"></i> The Challenge</h2>
+                        <p id="project-problem">Detailed explanation of the problem this project addresses...</p>
+                    </div>
+
+                    <div class="detail-card glass">
+                        <h2><i class="fas fa-lightbulb"></i> The Solution</h2>
+                        <p id="project-solution">How this project solves the identified challenges...</p>
+                    </div>
+
+                    <div class="detail-card glass">
+                        <h2><i class="fas fa-file-alt"></i> Project Overview</h2>
+                        <p id="project-full-desc">In-depth look at the project's features and functionality...</p>
+                    </div>
+                </div>
+
+                <!-- Right Column: Tech Stack & Tools -->
+                <div class="case-study-side">
+                    <div class="tech-card glass">
+                        <h3><i class="fas fa-tools"></i> Technologies Used</h3>
+                        <div class="tech-stack-list" id="project-tech-stack">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="share-card glass">
+                        <h3><i class="fas fa-share-alt"></i> Share Project</h3>
+                        <div class="social-share">
+                            <a href="#" class="share-btn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="share-btn"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="share-btn"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Maanda Adivhaho. All rights reserved. Built with passion and cutting-edge technology.</p>
+        </div>
+    </footer>
+
+    <script src="js/projects-data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/project-details.js"></script>
+</body>
+</html>
