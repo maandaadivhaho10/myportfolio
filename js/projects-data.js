@@ -28,6 +28,22 @@ const projectsData = {
         liveUrl: 'https://maandaadivhaho10.github.io/Learning-Managment-system/',
         category: 'web'
     },
+
+    'recipe-finder': {
+        title: 'Recipe Finder',
+        shortDesc: 'Build a client-side Recipe Finder that lets users search a small local dataset, view details, and favorite recipes.',
+        heroImage: './images/recipeImg.jpeg',
+        timeTaken: '1 week',
+        teamSize: '1 developer',
+        problem: 'People struggle to find quick, healthy recipes that match their dietary preferences and available ingredients. Existing recipe apps are often overwhelming with too many options.',
+        solution: 'Developed an intuitive recipe finder with a clean interface, allowing users to search recipes by ingredients, cuisine type, and dietary restrictions. The app includes a favorites system for quick access to preferred recipes.',
+        fullDesc: 'Recipe Finder is a React-based application that helps users discover and save recipes. The app features a comprehensive recipe database, advanced search filters, detailed recipe views with ingredients and instructions, and a personal favorites collection.',
+        techStack: ['React', 'Tailwind CSS'],
+        githubUrl: 'https://github.com/maandaadivhaho10/RecipeFinder',
+        liveUrl: 'https://recipe-finder-rose-seven.vercel.app/',
+        category: 'web ecommerce'
+    }
+,
     'stellarstock': {
         title: 'StellarStock',
         shortDesc: 'E-commerce web application that allows users to buy and sell products online. Built with React and Node.js for optimal performance.',
@@ -54,20 +70,6 @@ const projectsData = {
         techStack: ['React', 'Node.js', 'MongoDB', 'TypeScript'],
         githubUrl: 'https://github.com/maandaadivhaho10/MernStudentApp',
         liveUrl: 'https://mern-student-app.vercel.app/',
-        category: 'web ecommerce'
-    },
-    'recipe-finder': {
-        title: 'Recipe Finder',
-        shortDesc: 'Build a client-side Recipe Finder that lets users search a small local dataset, view details, and favorite recipes.',
-        heroImage: './images/recipeImg.jpeg',
-        timeTaken: '1 week',
-        teamSize: '1 developer',
-        problem: 'People struggle to find quick, healthy recipes that match their dietary preferences and available ingredients. Existing recipe apps are often overwhelming with too many options.',
-        solution: 'Developed an intuitive recipe finder with a clean interface, allowing users to search recipes by ingredients, cuisine type, and dietary restrictions. The app includes a favorites system for quick access to preferred recipes.',
-        fullDesc: 'Recipe Finder is a React-based application that helps users discover and save recipes. The app features a comprehensive recipe database, advanced search filters, detailed recipe views with ingredients and instructions, and a personal favorites collection.',
-        techStack: ['React', 'Tailwind CSS'],
-        githubUrl: 'https://github.com/maandaadivhaho10/RecipeFinder',
-        liveUrl: 'https://recipe-finder-rose-seven.vercel.app/',
         category: 'web ecommerce'
     },
     'extreme-service-delivery': {
