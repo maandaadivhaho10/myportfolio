@@ -55,7 +55,7 @@ const projectsData = {
         fullDesc: 'StellarStock is a comprehensive e-commerce solution built with React for the frontend and Node.js for the backend. The platform features user authentication, product catalog management, shopping cart functionality, and secure payment processing. The responsive design ensures optimal performance across all devices.',
         techStack: ['React', 'Node.js'],
         githubUrl: 'https://github.com/maandaadivhaho10/StellarStock2',
-        liveUrl: 'https://maandaadivhaho10.github.io/StellarStock2/',
+        liveUrl: 'https://stellar-stock2-7ums.vercel.app/',
         category: 'web ecommerce'
     },
     'student-management': {
