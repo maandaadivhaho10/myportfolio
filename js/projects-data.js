@@ -86,7 +86,7 @@ solution: 'Built a movie discovery platform that integrates with a real-time Mov
         liveUrl: '#',
         category: 'android'
     },
-    'melula': {
+    'Aurastyle': {
         title: 'Aurastyle',
         shortDesc: 'I successfully created the Aurastyle using React and CSS. This project demonstrates my ability to make a website responsive.',
         heroImage: 'images/s3.jpg',
