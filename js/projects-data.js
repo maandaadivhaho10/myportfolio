@@ -87,17 +87,17 @@ solution: 'Built a movie discovery platform that integrates with a real-time Mov
         category: 'android'
     },
     'melula': {
-        title: 'Melula',
-        shortDesc: 'I successfully created the Melula using React and CSS. This project demonstrates my ability to make a website responsive.',
+        title: 'Aurastyle',
+        shortDesc: 'I successfully created the Aurastyle using React and CSS. This project demonstrates my ability to make a website responsive.',
         heroImage: 'images/s3.jpg',
         timeTaken: '2 weeks',
         teamSize: '1 developer',
         problem: 'Businesses need professional, responsive websites that work seamlessly across all devices. Many small businesses lack the resources to create effective online presence.',
         solution: 'Developed a responsive website with modern design principles, ensuring optimal user experience across desktop, tablet, and mobile devices. The site features clean navigation, engaging content layout, and professional aesthetics.',
         fullDesc: 'Melula is a responsive website built with React and CSS, showcasing modern web development practices. The project demonstrates proficiency in responsive design, component-based architecture, and creating engaging user interfaces.',
-        techStack: ['React', 'CSS'],
+        techStack: ['React', 'tailwind'],
         githubUrl: 'https://github.com/maandaadivhaho10/Asssessment1',
-        liveUrl: 'https://assessment11.vercel.app/',
+        liveUrl: 'https://asssessment1-8w8s.vercel.app/',
         category: 'web ecommerce'
     },
     'task-tracker': {
